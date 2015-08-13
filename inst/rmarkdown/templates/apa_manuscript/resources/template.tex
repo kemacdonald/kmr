@@ -1,6 +1,8 @@
-% Template for PLoS
+% Template for APA submission with R Markdown
 
-\documentclass[10pt]{article}
+% Stuff changed from PLOS Template
+\documentclass[a4paper,man,natbib]{apa6}
+\usepackage{apacite}
 
 % amsmath package, useful for mathematical formulas
 \usepackage{amsmath}
@@ -46,8 +48,8 @@
 % Captions will be left justified
 \usepackage[labelfont=bf,labelsep=period,justification=raggedright]{caption}
 
-% Use the PLoS provided bibtex style
-\bibliographystyle{plos}
+% Use the APA provided bibtex style
+\bibliographystyle{apacite}
 
 % Remove brackets from numbering in List of References
 \makeatletter
@@ -71,30 +73,27 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+% ALL OF THE TITLE PAGE INFORMATION IS SPECIFIED IN THE YAML
+\title{\textbf{$title$}}
+\shorttitle{$short-title$}
+
+$for(author-information)$
+$author-information$
+$endfor$
+
+$for(affiliation-information)$
+$affiliation-information$
+$endfor$
+
+\authornote{$author-note$}
+\abstract{$abstract$}
+\keywords{$keywords$}
+
 \begin{document}
-
-% Title must be 150 characters or less
-\begin{flushleft}
-{\Large
-\textbf{$title$}
-}
-% Insert Author names, affiliations and corresponding author email.
-\\
-$for(author)$
-  $author.name$\textsuperscript{$author.affiliation$$if(author.email)$*$endif$}$sep$,
-$endfor$
-\\
-$for(affiliation)$
-\bf{$affiliation.id$} $if(affiliation.department)$$affiliation.department$, $endif$$if(affiliation.institution)$$affiliation.institution$, $endif$ $if(affiliation.city)$$affiliation.city$, $endif$ $if(affiliation.state)$$affiliation.state$, $endif$ $if(affiliation.country)$$affiliation.country$$endif$
-\\
-$endfor$
-
-\textasteriskcentered{} E-mail: $for(author)$
-  $if(author.email)$$author.email$$endif$
-$endfor$
-
-\end{flushleft}
+\maketitle
 
 $body$
+
+\bibliography{library.bib}
 
 \end{document}

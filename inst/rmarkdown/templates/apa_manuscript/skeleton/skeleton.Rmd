@@ -1,0 +1,59 @@
+---
+title:
+  # Title must be 150 characters or less
+  "A Capitalized Title: Something about a great Discovery"
+output: kmr::apa_manuscript
+csl: apa6.csl
+bibliography: library.bib
+short-title:
+    "An APA style short title"
+author-information:
+    # Single author document
+    #- \author{Kyle MacDonald}
+    # More than one author: uncomment one of the following:
+    #- \twoauthors{Kyle MacDonald}{Michael C. Frank}
+    - \threeauthors{Kyle MacDonald}{Daniel Yurvosky}{Michael C. Frank}
+    #- \fourauthors{Helen}{Dick}{Tracy and Larry}{James Bond}
+    #- \fiveauthors{...}{...}{...}{...}{...}
+    #- \sixauthors{...}{...}{...}{...}{...}{...}
+affiliation-information:
+    # Single affiliation
+    #- \affiliation{Department of Psychology, Stanford University}
+    # More than one author: uncomment one of the following:
+    #- \twoaffiliations{Department of Psychology, Stanford University}{Department of Psychology, Stanford University}
+    - \threeaffiliations{Department of Psychology, Stanford University}{Department of Psychology, Stanford University}{Department of Psychology, Stanford University}
+    #- \fouraffiliations{Helen}{Dick}{Tracy and Larry}{James Bond}
+    #- \fiveaffiliations{...}{...}{...}{...}{...}
+    #- \sixaffiliations{...}{...}{...}{...}{...}{...}
+author-note:
+    "The Author Note, containing contact information, acknowledgements, etc"
+abstract: 
+    "Abstract text."
+keywords:
+    "If provided, keywords will be displayed on a line beneath the abstract."
+---
+
+# Introduction {-}
+Cite fancy references [@Garnier2007].
+
+# Results 
+Results and Discussion can be combined.
+
+## Subsection 1 
+You can use R chunks directly to plot graphs.
+
+```{r, graph, echo=TRUE, message=FALSE, fig.height=4, fig.width=4, fig.align='center', fig.cap='Figure caption'}
+require("ggplot2")
+x <- 0:100
+y <- 2 * (x + rnorm(length(x), sd = 3) + 3)
+ggplot(data = data.frame(x, y), 
+       aes(x = x, y = y)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+## Subsection 2 
+
+# Discussion 
+
+# References 

@@ -1,2 +1,1 @@
-library(ggplot2)
-theme_set(theme_classic())
+ggplot2::theme_set(ggplot2::theme_classic())

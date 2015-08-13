@@ -1,6 +1,3 @@
-# install.packages("bootstrap")
-library(bootstrap)
-
 #' Standard error of the mean
 #'
 #' This function computes the standard error of the mean removing NAs.
@@ -40,31 +37,34 @@ anonymize_sids <- function(df, subject_column_label) {
 #'
 #' This function computes 95 percent confidence intervals via non-parametric bootstrap.
 #' @param x A vector of numeric values for which you need a boostrapped confidence interval
+#' @param .fun The function that you want to be bootsrtrapped
+#' @param bound Which bound of the confidence interval: "upper" vs. "lower"
+#' @param level Level of confidence (numeric)
 #' @keywords bootstrap confidence interval
 #' @export
 #' @examples
-#' # returns a named numeric with length 2 that has lower and upper bound of CI
-#' compute_ci(df$accuracy)
+#' # returns a numeric with either the lower and upper bound of the CI
+#' boostrap_ci(x = df$accuracy, .fun = mean, bound = "upper", level = 0.975, na.rm=T)
 
 
-compute_ci <- function(x) {
+bootstrap_ci <- function(x, .fun = NULL, bound, level, na.rm = T) {
     # assign function to be bootstrapped
-    theta <- function(x,xdata,na.rm=T) {mean(xdata[x],na.rm=na.rm)}
+    theta <- function(x,xdata,na.rm=T) {.fun(xdata[x],na.rm=na.rm)}
 
-    # get lower bound of confidence interval
-    ci_low <- function(x,na.rm=T) {
-        mean(x,na.rm=na.rm) - quantile(bootstrap(1:length(x), nboot = 1000, theta, x, na.rm=na.rm)$thetastar, .025, na.rm=na.rm)
+    if (bound == "lower") {
+        ci_compute <- function(x,na.rm=T, .fun = NULL, bound) {
+            .fun(x,na.rm=na.rm) - quantile(bootstrap::bootstrap(1:length(x), nboot = 1000, theta, x, na.rm=na.rm)$thetastar, level, na.rm=na.rm)
         }
-
-    # get upper bound of confidence interval
-    ci_high <- function(x,na.rm=T) {
-        quantile(bootstrap(1:length(x), nboot = 1000, theta, x, na.rm=na.rm)$thetastar, .975, na.rm=na.rm) - mean(x,na.rm=na.rm)
     }
 
-    # return upper and lower bounds of CI
-    ci <- c(ci_low(x), ci_high(x))
+    if (bound == "upper") {
+        ci_compute <- function(x,na.rm=T, .fun = NULL, bound) {
+            quantile(bootstrap::bootstrap(1:length(x), nboot = 1000, theta, x, na.rm=na.rm)$thetastar, level, na.rm=na.rm) - .fun(x,na.rm=na.rm)
+        }
+    }
 
-    return(ci)
+    ci <- ci_compute(x)
+    return(as.numeric(ci))
 }
 
 
