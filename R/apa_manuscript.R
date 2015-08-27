@@ -1,4 +1,11 @@
+#' APA submission format (PDF)
+#' 
+#' Template for creating a handout according to APA
+#' 
+#' @inheritParams pdf_document
+#' 
 #' @export
+
 apa_manuscript <- function(keep_tex = TRUE,
                          includes = NULL) {
     

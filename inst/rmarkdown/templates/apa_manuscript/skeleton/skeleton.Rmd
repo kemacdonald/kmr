@@ -1,43 +1,39 @@
 ---
-title:
-  # Title must be 150 characters or less
-  "A Capitalized Title: Something about a great Discovery"
+title: "A Capitalized Title: Something about a great Discovery"
+short-title: "An APA style short title"
 output: kmr::apa_manuscript
 csl: apa6.csl
 bibliography: library.bib
-short-title:
-    "An APA style short title"
+
 author-information:
-    # Single author document
-    #- \author{Kyle MacDonald}
-    # More than one author: uncomment one of the following:
-    #- \twoauthors{Kyle MacDonald}{Michael C. Frank}
-    - \threeauthors{Kyle MacDonald}{Daniel Yurvosky}{Michael C. Frank}
-    #- \fourauthors{Helen}{Dick}{Tracy and Larry}{James Bond}
-    #- \fiveauthors{...}{...}{...}{...}{...}
-    #- \sixauthors{...}{...}{...}{...}{...}{...}
+    - \author{Kyle MacDonald}
+
 affiliation-information:
     # Single affiliation
     #- \affiliation{Department of Psychology, Stanford University}
-    # More than one author: uncomment one of the following:
-    #- \twoaffiliations{Department of Psychology, Stanford University}{Department of Psychology, Stanford University}
-    - \threeaffiliations{Department of Psychology, Stanford University}{Department of Psychology, Stanford University}{Department of Psychology, Stanford University}
-    #- \fouraffiliations{Helen}{Dick}{Tracy and Larry}{James Bond}
-    #- \fiveaffiliations{...}{...}{...}{...}{...}
-    #- \sixaffiliations{...}{...}{...}{...}{...}{...}
+
 author-note:
     "The Author Note, containing contact information, acknowledgements, etc"
+    
 abstract: 
     "Abstract text."
+    
 keywords:
     "If provided, keywords will be displayed on a line beneath the abstract."
 ---
 
-# Introduction {-}
+```{r global_options, include=FALSE}
+rm(list=ls())
+knitr::opts_chunk$set(fig.width=6, fig.height=5, fig.crop = F, fig.path='figs/',
+                      echo=FALSE, warning=FALSE, cache=T, message=FALSE, sanitize = T)
+```
+
+
+# Introduction 
 Cite fancy references [@Garnier2007].
 
 # Results 
-Results and Discussion can be combined.
+Results 
 
 ## Subsection 1 
 You can use R chunks directly to plot graphs.
