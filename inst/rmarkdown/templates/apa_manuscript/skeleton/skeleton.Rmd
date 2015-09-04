@@ -5,6 +5,10 @@ output: kmr::apa_manuscript
 csl: apa6.csl
 bibliography: library.bib
 
+document-params: "a4paper,man,apacite,floatsintext"
+
+bib-tex: "library.bib"
+
 author-information:
     - \author{Kyle MacDonald}
 

@@ -1,7 +1,7 @@
 % Template for APA submission with R Markdown
 
 % Stuff changed from PLOS Template
-\documentclass[a4paper,man,natbib]{apa6}
+\documentclass[$document-params$]{apa6}
 \usepackage{apacite}
 
 % amsmath package, useful for mathematical formulas
@@ -48,8 +48,6 @@
 % Captions will be left justified
 \usepackage[labelfont=bf,labelsep=period,justification=raggedright]{caption}
 
-% Use the APA provided bibtex style
-\bibliographystyle{apacite}
 
 % Remove brackets from numbering in List of References
 \makeatletter
@@ -94,6 +92,6 @@ $endfor$
 
 $body$
 
-\bibliography{library.bib}
+\bibliography{$bib-tex$}
 
 \end{document}
