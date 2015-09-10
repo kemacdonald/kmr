@@ -3,6 +3,7 @@
 export(anonymize_sids)
 export(apa_manuscript)
 export(bootstrap_ci)
+export(els_manuscript)
 export(find_file)
 export(find_resource)
 export(html_document)

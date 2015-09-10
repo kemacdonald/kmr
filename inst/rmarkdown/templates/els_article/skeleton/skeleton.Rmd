@@ -1,0 +1,63 @@
+---
+title: "A Capitalized Title: Something about a great Discovery"
+output: kmr::els_manuscript
+bibliography: library.bib
+document-params: "authoryear, review"
+bib-tex: "library.bib"
+
+journal: "Cognition"
+
+author-information:
+    # Group authors per affiliation:
+    - \author{Elsevier\fnref{myfootnote}}
+    - \address{Radarweg 29, Amsterdam}
+    - \fntext[myfootnote]{Since 1880.}
+
+affiliation-information:
+    # or include affiliations in footnotes:
+    - \author[mymainaddress,mysecondaryaddress]{Elsevier Inc}
+    - \ead[url]{www.elsevier.com}
+    - \author[mysecondaryaddress]{Global Customer Service\corref{mycorrespondingauthor}}
+    - \cortext[mycorrespondingauthor]{Corresponding author}
+    - \ead{support@elsevier.com}
+    - \address[mymainaddress]{1600 John F Kennedy Boulevard, Philadelphia}
+    - \address[mysecondaryaddress]{360 Park Avenue South, New York}
+    
+abstract: 
+    "Abstract text."
+    
+keywords:
+    "If provided, keywords will be displayed on a line beneath the abstract."
+---
+
+```{r global_options, include=FALSE}
+rm(list=ls())
+knitr::opts_chunk$set(fig.width=6, fig.height=5, fig.crop = F, fig.path='figs/',
+                      echo=FALSE, warning=FALSE, cache=T, message=FALSE, sanitize = T)
+```
+
+
+# Introduction 
+Cite fancy references [@Garnier2007].
+
+# Results 
+Results 
+
+## Subsection 1 
+You can use R chunks directly to plot graphs.
+
+```{r, graph, echo=TRUE, message=FALSE, fig.height=4, fig.width=4, fig.align='center', fig.cap='Figure caption'}
+require("ggplot2")
+x <- 0:100
+y <- 2 * (x + rnorm(length(x), sd = 3) + 3)
+ggplot(data = data.frame(x, y), 
+       aes(x = x, y = y)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+## Subsection 2 
+
+# Discussion 
+
+# References 

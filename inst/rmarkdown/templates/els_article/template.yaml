@@ -1,0 +1,4 @@
+name: Elsevier Manuscript 
+description: >
+  Template for creating an article for submission to an Elsevier journal.
+create_dir: true
