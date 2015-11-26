@@ -1,4 +1,4 @@
-R package of some useful functions and apa manuscript r markdown template.
+R package with some useful functions and r markdown templates.
 
 Install by running
 ```
