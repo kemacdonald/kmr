@@ -3,10 +3,12 @@ Title: KM Customization
 Version: 0.0.0.9000
 Authors@R: person("Kyle", "MacDonald", email = "kyle.macdonald@stanford.edu", role = c("aut", "cre"))
 Description: Custom functions, templates, and rmarkdown templates
-Depends: R (>= 3.2.0)
-Imports: 
-    dplyr, 
-    ggplot2, 
+Depends:
+    R (>= 3.2.0)
+Imports:
+    dplyr,
+    ggplot2,
     bootstrap
 License: What license is it under?
 LazyData: true
+RoxygenNote: 5.0.1
