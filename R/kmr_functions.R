@@ -69,4 +69,16 @@ bootstrap_ci <- function(x, .fun = NULL, bound, level, na.rm = T) {
 
 
 
+#' Convert to numeric
+#'
+#' This function converts a value to a character than a numeric
+#' @param x A non numeric value
+#' @keywords to numeric
+#' @export
+
+to.n <- function(x) {
+    as.numeric(as.character(x))
+}
+
+
 
